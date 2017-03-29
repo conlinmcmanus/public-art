@@ -37,6 +37,15 @@ RSpec.describe LocationsController, type: :controller do
 
       expect(assigns(:location)).to eq(location)
     end
+
+    it "shows a Google Maps embedded map on the page" do
+      location = Location.create! valid_attributes
+
+      get :show, params: {id: location.to_param}
+      
+      expect(response.body).to include(Rails.application.secrets.google_api_key)
+      expect(response.body).to include("google.com/maps/embed")
+    end
   end
 
   describe "GET #new" do

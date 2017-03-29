@@ -35,7 +35,7 @@ gem 'devise'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-
+gem 'geocoder'
 gem "database_cleaner"
 gem "rspec-rails"
 gem 'rails-controller-testing'
